@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE facelet-taglib PUBLIC
+  "-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN"
+  "http://java.sun.com/dtd/facelet-taglib_1_0.dtd">
+
+<facelet-taglib>
+    <namespace>http://clschina.com/jsf</namespace>
+
+	<tag>
+		<tag-name>text2image</tag-name>
+		<component>
+			<component-type>com.clschina.common.jsf.component.UIText2Image</component-type>
+			<renderer-type>com.clschina.common.jsf.renderer.Text2ImageRenderer</renderer-type>
+		</component>
+	</tag>
+    <tag>
+        <tag-name>dataScroller</tag-name>
+        <component>
+            <component-type>com.clschina.common.jsf.component.UIDataScroller</component-type>
+            <renderer-type>com.clschina.common.jsf.renderer.DataScrollerRenderer</renderer-type>
+        </component>
+    </tag>
+    <tag>
+        <tag-name>fileUpload</tag-name>
+        <component>
+            <component-type>com.clschina.common.jsf.component.UIFileUpload</component-type>
+            <renderer-type>com.clschina.common.jsf.renderer.FileUploadRenderer</renderer-type>
+        </component>
+    </tag>
+    <tag>
+    	<tag-name>selectManyCheckbox</tag-name>
+        <component>
+            <component-type>javax.faces.HtmlSelectManyCheckbox</component-type>
+            <renderer-type>com.clschina.common.jsf.renderer.SelectManyCheckboxListRenderer</renderer-type>
+        </component>
+    </tag>
+    <tag>
+    	<tag-name>dataList</tag-name>
+    	<component>
+    		<component-type>javax.faces.HtmlDataTable</component-type>
+    		<renderer-type>com.clschina.common.jsf.renderer.DataListRenderer</renderer-type>
+    	</component>
+    </tag>
+    <tag>
+    	<tag-name>replacementConverter</tag-name>
+    	<component>
+    		<component-type>javax.faces.HtmlDataTable</component-type>
+    		<renderer-type>com.clschina.common.jsf.converter.ReplacementConverter</renderer-type>
+    	</component>
+    </tag>
+</facelet-taglib>

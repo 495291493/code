@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 采购订单发票结算纠错报表 -->
+<configuration>
+	<excelStartRow>1</excelStartRow>
+	<excelAPI>jxl</excelAPI>
+	
+	<rowClasses>row1,row2,row3</rowClasses>
+	<tableClasses>jsjcreport</tableClasses>
+
+	<htmlRowNum>true</htmlRowNum>
+	<excelRowNum>true</excelRowNum>
+    <sql>select ra.cordercode cpoid,ra.ccode,ra.ddate rkdate,rb.cinvcode,rb.iquantity rkq,
+cpbvcode,dpbvdate kpdate, pb.ipbvquantity kpq,pa.cpbvmaker
+from {0}..PurBillVouch pa with (nolock) 
+join {0}..PurBillVouchs pb with (nolock) on pa.pbvid=pb.pbvid join {0}..rdrecords rb with (nolock) on pb.rdsid=rb.autoid
+join  {0}..rdrecord ra with (nolock) on ra.id=rb.id
+where rb.iquantity &lt; (select sum(pb2.ipbvquantity) from {0}..PurBillVouchs pb2 with (nolock) where pb2.rdsid=rb.autoid)
+and pa.dpbvdate &gt;= DATEADD(MONTH,DATEDIFF(MONTH,0,getdate()),0)
+order by ra.cordercode,ccode,cpbvcode</sql>
+
+	<columns>
+		<column dataIndex="0" label="采购订单号" styleClass="col1" htmlIndex="0" excelIndex="0" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="1" label="入库单号" styleClass="col2" htmlIndex="1" excelIndex="1" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="2" label="入库日期" styleClass="col3" htmlIndex="2" excelIndex="2" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="3" label="礼品编号" styleClass="col4" htmlIndex="3" excelIndex="3" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="4" label="入库数量" styleClass="col5" htmlIndex="4" excelIndex="4" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="5" label="发票编号" styleClass="col6" htmlIndex="5" excelIndex="5" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="6" label="录票日期" styleClass="col7" htmlIndex="6" excelIndex="5" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="7" label="发票数量" styleClass="col8" htmlIndex="7" excelIndex="5" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="8" label="录票人" styleClass="col9" htmlIndex="8" excelIndex="5" sumOnFooter="false" avgOnFooter="false"  />
+	</columns>
+	
+	
+</configuration>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0"
+    metadata-complete="true">
+    <application>
+		<message-bundle>com.clschina.bundle.jsf.JSFMessage</message-bundle> 
+  		<locale-config>
+		   <default-locale>zh_CN</default-locale>
+		   <supported-locale>zh_CN</supported-locale>
+  		</locale-config>
+ 	</application>
+    <lifecycle>
+        <phase-listener>com.clschina.common.jsf.ExecuteActionPhaseListener</phase-listener>
+    </lifecycle>  
+    
+    <validator>
+        <validator-id>CaptchaValidator</validator-id>
+        <validator-class>com.clschina.common.jsf.validator.CaptchaValidator</validator-class>
+    </validator>
+    <converter>
+        <description>HTMLEditorUploadConverter convert</description>
+        <converter-id>HTMLEditorUploadConverter</converter-id>
+        <converter-class>com.clschina.common.jsf.converter.HTMLEditorUploadConverter</converter-class>
+    </converter>
+    <converter>
+        <description>Replacement convert</description>
+        <converter-id>ReplacementConverter</converter-id>
+        <converter-class>com.clschina.common.jsf.converter.ReplacementConverter</converter-class>
+    </converter>
+    <converter>
+        <description>ubb to html convert</description>
+        <converter-id>UBBConverter</converter-id>
+        <converter-class>com.clschina.common.jsf.converter.UBBConverter </converter-class>
+    </converter>
+    <converter>
+        <description>MultiLineConverter convert</description>
+        <converter-id>MultiLineConverter</converter-id>
+        <converter-class>com.clschina.common.jsf.converter.MultiLineConverter </converter-class>
+    </converter>    
+	<managed-bean>
+        <managed-bean-name>information</managed-bean-name>
+        <managed-bean-class>com.clschina.common.backingbean.InformationBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>conf</managed-bean-name>
+        <managed-bean-class>com.clschina.common.backingbean.ConfigurationBackingBean</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>autoRun</managed-bean-name>
+        <managed-bean-class>com.clschina.common.backingbean.AutoRunBackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+	<managed-bean>
+        <managed-bean-name>backingBeanForBinding</managed-bean-name>
+        <managed-bean-class>com.clschina.common.backingbean.BackingBeanForBinding</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+	<component>
+    	<component-type>com.clschina.common.jsf.component.UIDataScroller</component-type>
+    	<component-class>com.clschina.common.jsf.component.UIDataScroller</component-class>
+	</component>   
+	<component>
+    	<component-type>com.clschina.common.jsf.component.UIFileUpload</component-type>
+    	<component-class>com.clschina.common.jsf.component.UIFileUpload</component-class>
+	</component>
+	<component>
+		<component-type>com.clschina.common.jsf.component.UIText2Image</component-type>
+		<component-class>com.clschina.common.jsf.component.UIText2Image</component-class>
+	</component>   
+
+   <render-kit>
+   	  <renderer>
+ 		 <component-family>javax.faces.Output</component-family>
+ 		 <renderer-type>com.clschina.common.jsf.renderer.Text2ImageRenderer</renderer-type>
+ 		 <renderer-class>com.clschina.common.jsf.renderer.Text2ImageRenderer</renderer-class>
+   	  </renderer>
+      <renderer>
+         <component-family>javax.faces.Output</component-family>
+         <renderer-type>com.clschina.common.jsf.renderer.DataScrollerRenderer</renderer-type>
+         <renderer-class>com.clschina.common.jsf.renderer.DataScrollerRenderer</renderer-class>
+      </renderer>
+      <renderer>
+         <component-family>javax.faces.Input</component-family>
+         <renderer-type>com.clschina.common.jsf.renderer.FileUploadRenderer</renderer-type>
+         <renderer-class>com.clschina.common.jsf.renderer.FileUploadRenderer</renderer-class>
+      </renderer>
+      <renderer>
+         <component-family>javax.faces.SelectMany</component-family>
+         <renderer-type>com.clschina.common.jsf.renderer.SelectManyCheckboxListRenderer</renderer-type>
+         <renderer-class>com.clschina.common.jsf.renderer.SelectManyCheckboxListRenderer</renderer-class>
+      </renderer>
+      <renderer>
+         <component-family>javax.faces.Data</component-family>
+         <renderer-type>com.clschina.common.jsf.renderer.DataListRenderer</renderer-type>
+         <renderer-class>com.clschina.common.jsf.renderer.DataListRenderer</renderer-class>
+      </renderer>
+      <renderer>
+         <component-family>javax.faces.Data</component-family>
+         <renderer-type>javax.faces.Table</renderer-type>
+         <renderer-class>com.clschina.common.jsf.renderer.DataTableRenderer</renderer-class>
+      </renderer>
+   </render-kit>
+
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/common/error.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>public_error</from-outcome>
+            <to-view-id>/common/publicerror.xhtml</to-view-id>
+        </navigation-case>
+		<navigation-case>
+            <from-outcome>information</from-outcome>
+            <to-view-id>/common/information.xhtml</to-view-id>
+        </navigation-case>
+		<navigation-case>
+            <from-outcome>public_information</from-outcome>
+            <to-view-id>/common/publicinformation.xhtml</to-view-id>
+        </navigation-case>
+	</navigation-rule>
+
+</faces-config>
+

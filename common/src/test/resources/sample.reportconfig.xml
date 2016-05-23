@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<cellDataConverterClass>com.clschina.common.test.ReportConverter</cellDataConverterClass>
+	<excelStartRow>2</excelStartRow>
+
+	<rowClasses>row1,row2,row3</rowClasses>
+	<tableClasses>tbl</tableClasses>
+
+	<htmlRowNum>true</htmlRowNum>
+	<excelRowNum>false</excelRowNum>
+
+	<columns>
+		<column dataIndex="0" label="" styleClass="col1" htmlIndex="0" excelIndex="0" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="1" label="" styleClass="col2" htmlIndex="1" excelIndex="1" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="2" label="" styleClass="col3" htmlIndex="2" excelIndex="2" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="3" label="" styleClass="col4" htmlIndex="3" excelIndex="3" sumOnFooter="false" avgOnFooter="false"  />
+		<column dataIndex="4" label="" styleClass="col5" htmlIndex="4" excelIndex="4" sumOnFooter="false" avgOnFooter="false"  />
+	</columns>
+</configuration>

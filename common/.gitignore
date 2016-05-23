@@ -1,0 +1,10 @@
+/target
+/bin
+/src/main/webapp/WEB-INF/classes/hibernate.properties
+/src/main/webapp/WEB-INF/classes/erp.properties
+/src/main/webapp/WEB-INF/classes/hibernate.cfg.xml
+/src/main/webapp/WEB-INF/classes/liduonet.properties
+/src/main/webapp/WEB-INF/classes/log4j.properties
+/src/main/webapp/WEB-INF/classes/sms.properties
+/src/main/webapp/WEB-INF/classes/config.properties
+*.log
